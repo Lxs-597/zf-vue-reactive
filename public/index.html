@@ -7,19 +7,32 @@
   <title>Document</title>
 </head>
 <body>
-  <script src="../dist/vue.js"></script>
+  <div id="app"></div>
+  <script src="reactivity.js"></script>
 
   <script>
-    const { effect, ref, computed, reactive } = VueComposition
+    const { effect, ref, computed, reactive } = VueReactivity
+    const app = document.getElementById('app')
 
-    const state = reactive({
-      name: 'name test',
-      parent: {
-        mother: 'mother'
-      }
+    // const state = reactive({
+    //   name: 'name test',
+    //   age: 12,
+    //   parent: {
+    //     mother: 'mother'
+    //   },
+    //   friends: []
+    // })
+
+    const state = reactive([1,2,3])
+
+    effect(() => {
+      // app.innerHTML = `name: ${state.name}, ${state.parent.mother}`
+      app.innerHTML = state
     })
 
-    console.log(state.parent)
+    setTimeout(() => {
+      state[19] = 1
+    }, 2000)
   </script>
 </body>
 </html>

@@ -4,16 +4,12 @@ import replace from '@rollup/plugin-replace'
 import serve from 'rollup-plugin-serve'
 import path from 'path'
 
-const app = (apps) => {
-  console.log(apps)
-}
-
 export default {
   input: './src/index.ts',
   output: {
-    name: 'VueComposition',
+    name: 'VueReactivity',
     format: 'umd',
-    file: path.resolve(__dirname, 'dist/vue.js'),
+    file: path.resolve(__dirname, 'dist/reactivity.js'),
     sourcemap: true
   },
   plugins: [
@@ -28,8 +24,8 @@ export default {
     }),
     serve({
       openPage: '/public/index.html',
-      port: 3000,
-      contentBase: ''
+      port: 3001,
+      contentBase: ['public', 'dist'],
     })
   ]
 }
