@@ -7,9 +7,9 @@ import path from 'path'
 export default {
   input: './src/index.ts',
   output: {
-    name: 'VueReactivity',
+    name: 'Vue',
     format: 'umd',
-    file: path.resolve(__dirname, 'dist/reactivity.js'),
+    file: path.resolve(__dirname, 'dist/vue.js'),
     sourcemap: true
   },
   plugins: [
