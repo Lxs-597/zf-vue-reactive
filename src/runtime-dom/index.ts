@@ -16,7 +16,8 @@ export function createApp(rootComponent) {
 
   const { mount } = app
 
-  app.mount = function(container: HTMLElement) {
+  app.mount = function(selector: string) {
+    const container = document.querySelector(selector)
     container.innerHTML = ''
     mount(container)
   }

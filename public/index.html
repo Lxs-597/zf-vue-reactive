@@ -11,28 +11,18 @@
   <script src="vue.js"></script>
 
   <script>
-    const { effect, ref, computed, reactive } = Vue
-    const app = document.getElementById('app')
+    const { createApp, effect, ref, computed, reactive, h } = Vue
+    const App = {
+      setup() {
+        const state = reactive({ name: 'abc', age: 12 })
 
-    // const state = reactive({
-    //   name: 'name test',
-    //   age: 12,
-    //   parent: {
-    //     mother: 'mother'
-    //   },
-    //   friends: []
-    // })
+        return () => {
+          return h('div', { style: { color: 'red' } }, `name:${state.name}-age:${state.age}`)
+        }
+      }
+    }
 
-    const state = reactive([1,2,3])
-
-    effect(() => {
-      // app.innerHTML = `name: ${state.name}, ${state.parent.mother}`
-      app.innerHTML = state
-    })
-
-    setTimeout(() => {
-      state[19] = 1
-    }, 2000)
+    createApp(App).mount('#app')
   </script>
 </body>
 </html>
